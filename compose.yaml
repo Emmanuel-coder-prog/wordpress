@@ -40,7 +40,6 @@ services:
     build:
       context: .
       dockerfile: docker/php/dockerfile
-      target: development
 
     depends_on:
       db:
