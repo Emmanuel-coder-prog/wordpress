@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
     build:
       context: .
-      dockerfile: docker/php/Dockerfile
+      dockerfile: docker/php/dockerfile
       # target: development
 
     depends_on:
