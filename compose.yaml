@@ -37,10 +37,10 @@ services:
   wordpress:
     image: wordpress:7.0.1-php8.4-fpm
     restart: unless-stopped
-     build:
-       context: .
-       dockerfile: docker/php/dockerfile
-       target: development
+    build:
+      context: .
+      dockerfile: docker/php/dockerfile
+      target: development
 
     depends_on:
       db:
@@ -70,15 +70,10 @@ services:
         define('FS_METHOD', 'direct');
         define('DISALLOW_FILE_EDIT', false);
         define('DISABLE_WP_CRON', true);
-        define('WP_ALLOW_MULTISITE', true);
-        define('MULTISITE', true);
-        define('SUBDOMAIN_INSTALL', false);
         define('WP_HOME', getenv_docker('WP_HOME', 'http://localhost'));
         define('WP_SITEURL', getenv_docker('WP_SITEURL', 'http://localhost'));
         define('DOMAIN_CURRENT_SITE', getenv_docker('DOMAIN_CURRENT_SITE', 'localhost'));
         define('PATH_CURRENT_SITE', getenv_docker('PATH_CURRENT_SITE', '/'));
-        define('SITE_ID_CURRENT_SITE', 1);
-        define('BLOG_ID_CURRENT_SITE', 1);
         define('WP_REDIS_HOST', 'redis');
         define('WP_REDIS_PORT', 6379);
         define('WP_REDIS_DATABASE', 0);
@@ -209,15 +204,10 @@ services:
         define('WP_ENVIRONMENT_TYPE', getenv_docker('WP_ENVIRONMENT_TYPE', 'local'));
         define('FS_METHOD', 'direct');
         define('DISABLE_WP_CRON', true);
-        define('WP_ALLOW_MULTISITE', true);
-        define('MULTISITE', true);
-        define('SUBDOMAIN_INSTALL', false);
         define('WP_HOME', getenv_docker('WP_HOME', 'http://localhost'));
         define('WP_SITEURL', getenv_docker('WP_SITEURL', 'http://localhost'));
         define('DOMAIN_CURRENT_SITE', getenv_docker('DOMAIN_CURRENT_SITE', 'localhost'));
         define('PATH_CURRENT_SITE', getenv_docker('PATH_CURRENT_SITE', '/'));
-        define('SITE_ID_CURRENT_SITE', 1);
-        define('BLOG_ID_CURRENT_SITE', 1);
         define('WP_REDIS_HOST', 'redis');
         define('WP_REDIS_PORT', 6379);
         define('WP_REDIS_DATABASE', 0);
@@ -264,15 +254,10 @@ services:
       WORDPRESS_DB_PASSWORD: ${WP_DB_PASSWORD:?WP_DB_PASSWORD is required}
       WORDPRESS_TABLE_PREFIX: ${WP_TABLE_PREFIX:-wp_}
       WORDPRESS_CONFIG_EXTRA: |
-        define('WP_ALLOW_MULTISITE', true);
-        define('MULTISITE', true);
-        define('SUBDOMAIN_INSTALL', false);
         define('WP_HOME', getenv_docker('WP_HOME', 'http://localhost'));
         define('WP_SITEURL', getenv_docker('WP_SITEURL', 'http://localhost'));
         define('DOMAIN_CURRENT_SITE', getenv_docker('DOMAIN_CURRENT_SITE', 'localhost'));
         define('PATH_CURRENT_SITE', getenv_docker('PATH_CURRENT_SITE', '/'));
-        define('SITE_ID_CURRENT_SITE', 1);
-        define('BLOG_ID_CURRENT_SITE', 1);
 
     volumes:
       - ./wordpress:/var/www/html
