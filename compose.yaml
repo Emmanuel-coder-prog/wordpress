@@ -214,7 +214,7 @@ services:
         define('SUBDOMAIN_INSTALL', false);
         define('WP_HOME', getenv_docker('WP_HOME', 'http://localhost'));
         define('WP_SITEURL', getenv_docker('WP_SITEURL', 'http://localhost'));
-        define('DOMAIN_CURRENT_SITE', getenv_docker('DOMAIN_CURRENT_SITE', 'nuetech.test'));
+        define('DOMAIN_CURRENT_SITE', getenv_docker('DOMAIN_CURRENT_SITE', 'localhost'));
         define('PATH_CURRENT_SITE', getenv_docker('PATH_CURRENT_SITE', '/'));
         define('SITE_ID_CURRENT_SITE', 1);
         define('BLOG_ID_CURRENT_SITE', 1);
@@ -269,7 +269,7 @@ services:
         define('SUBDOMAIN_INSTALL', false);
         define('WP_HOME', getenv_docker('WP_HOME', 'http://localhost'));
         define('WP_SITEURL', getenv_docker('WP_SITEURL', 'http://localhost'));
-        define('DOMAIN_CURRENT_SITE', getenv_docker('DOMAIN_CURRENT_SITE', 'nuetech.test'));
+        define('DOMAIN_CURRENT_SITE', getenv_docker('DOMAIN_CURRENT_SITE', 'localhost'));
         define('PATH_CURRENT_SITE', getenv_docker('PATH_CURRENT_SITE', '/'));
         define('SITE_ID_CURRENT_SITE', 1);
         define('BLOG_ID_CURRENT_SITE', 1);
