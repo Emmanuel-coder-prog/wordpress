@@ -37,10 +37,10 @@ services:
   wordpress:
     image: wordpress:7.0.1-php8.4-fpm
     restart: unless-stopped
-    # build:
-      # context: .
-      # dockerfile: docker/php/dockerfile
-      # target: development
+     build:
+       context: .
+       dockerfile: docker/php/dockerfile
+       target: development
 
     depends_on:
       db:
