@@ -1,0 +1,21 @@
+# syntax=docker/dockerfile:1
+
+FROM wordpress:7.0.1-php8.4-fpm AS base
+
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        libicu-dev \
+        libzip-dev \
+        unzip \
+    ; \
+    docker-php-ext-install -j"$(nproc)" \
+        intl \
+        bcmath \
+        zip \
+    ; \
+    rm -rf /var/lib/apt/lists/*
+
+COPY --from=composer:2 \
+    /usr/bin/composer \
+    /usr/local/bin/composer
